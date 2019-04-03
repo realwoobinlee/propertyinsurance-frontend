@@ -1,0 +1,14 @@
+#top-img {
+    height: 100%;
+}
+#top-nav {
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 4px 8px rgb(150, 149, 149)
+}
+.abstand-top {
+    top: 50px;
+}
+.grenz-right {
+    border-right: 5px black;
+}

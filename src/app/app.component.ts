@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'beitragsrechner';
+  left: boolean;
+  middle: boolean;
+  right: boolean;
 }
