@@ -17,6 +17,10 @@ export class AppComponent {
   public width: any;
 
   constructor(private apiservice: ApiService, private kategoriegroup: KategorienGroup) {
+    /* test
+    this.gegenstand = "bike";
+    this.preis = 1000;
+    */
   }
 
   ngOnInit() {
