@@ -3,6 +3,8 @@ import { Component,OnInit } from '@angular/core';
 import { ApiService } from '../shared/service/api.service';
 import { Beitrag } from '../shared/service/beitrag.model';
 import { KategorienGroup } from '../shared/kategorie/kategorie.service';
+import { ValidatorService } from '../shared/service/validator.service';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +18,9 @@ export class AppComponent {
   
   public width: any;
 
-  constructor(private apiservice: ApiService, private kategoriegroup: KategorienGroup) {
+  constructor(private apiservice: ApiService,
+              private kategoriegroup: KategorienGroup,
+              private validatorservice: ValidatorService) {
     /* test
     this.gegenstand = "bike";
     this.preis = 1000;
@@ -26,6 +30,7 @@ export class AppComponent {
   ngOnInit() {
     this.width = window.innerWidth;
     this.getBeitrag();
+    $
   }
 
   private getBeitrag() {
@@ -37,5 +42,9 @@ export class AppComponent {
         });
       }
     )
+  }
+
+  changePreis(value:number) {
+    this.preis = value;
   }
 }

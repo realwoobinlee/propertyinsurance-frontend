@@ -5,6 +5,7 @@ export class KategorienGroup {
     public productauswahl: string;
     public maxjahr: string;
     public mussalert: boolean = false;
+    public zeigepreisdiv: boolean = false;
 
     setZweiteKategorie(value:string) {
         this.ersteauswahl = value;
@@ -35,8 +36,10 @@ export class KategorienGroup {
     setAlert(value: string) {
         if(value === "yes") {
             this.mussalert = true;
+            this.zeigepreisdiv = false;
         } else {
             this.mussalert = false;
+            this.zeigepreisdiv = true;
         }
     }
 }
