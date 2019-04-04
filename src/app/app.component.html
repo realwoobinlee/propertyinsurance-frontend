@@ -40,11 +40,10 @@
     </div>
   </div>
   <!-- Beitragsrechner-->
-  <div class="col-12 col-sm-6 col-md-8 justify-content-center eingabe-bereich">
+  <div class="col-12 col-sm-6 col-md-8 justify-content-center eingabe-bereich row">
     <!--weiter-->
     <div>
-      <div jumbotron-anpassung><h1></h1></div>
-      <div class="jumbotron jumbotron-anpassung">
+      <div class="jumbotron jumbotron-anpassung" style="background-color: white">
         <h1 class="display-4">Beitragsrechner <p>Gegenstandsversicherung</p></h1>
         <p class="lead">Welchen Gegenstand möchten Sie versichern?</p>
         <select class="form-control" (change)="kategoriegroup.setZweiteKategorie($event.target.value)">
@@ -85,9 +84,12 @@
             <span class="input-group-text">€</span>
           </div>
         </div>
-      </div>
     </div>
-    <div class="jumbotron jumbotron-anpassung" style="background-color: beige">
+    </div>
+  </div>
+</div>
+  <div class="col-12 col-sm-6 col-md-8 justify-content-center eingabe-bereich row">
+    <div class="jumbotron jumbotron-anpassung" style="background-color: rgb(142,0,56); color: white">
       <div id="Beitrag_div" class="lead">
         <TABLE class="col-sm-12">
           <TR>
