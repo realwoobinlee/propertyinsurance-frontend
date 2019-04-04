@@ -7,7 +7,7 @@
   <!-- Headline-->
   <div *ngIf="width > 400" class= "col-4 abstand-top side-bar">
     <div class=" col-4 col-md-2 justify-content-start icon-style">
-        <i id="bicyle-icon" class="fas fa-bicycle fa-4x"></i> 
+        <i id="bicyle-icon" class="fas fa-bicycle fa-4x"></i>
     </div>
     <div class="col-4 col-md-2 justify-content-start icon-style">
         <i id="erste-pfeile" class="fas fa-angle-double-right fa-2x"></i>
@@ -24,7 +24,7 @@
   </div>
   <div *ngIf="width < 401" class= "col-4 abstand-top side-bar">
     <div class=" col-4 col-md-2 justify-content-start icon-style">
-        <i id="bicyle-icon" class="fas fa-bicycle fa-3x"></i> 
+        <i id="bicyle-icon" class="fas fa-bicycle fa-3x"></i>
     </div>
     <div class="col-4 col-md-2 justify-content-start icon-style">
         <i id="erste-pfeile" class="fas fa-angle-double-right fa-1x"></i>
@@ -46,18 +46,12 @@
       <div jumbotron-anpassung><h1></h1></div>
       <div class="jumbotron jumbotron-anpassung">
         <h1 class="display-4">Beitragsrechner <p>Gegenstandsversicherung</p></h1>
-        <p class="lead">Welchen Gegenstand möchten Sie versichern?</p>
-        <hr class="my-4">
-        <div class="col-sm dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Auswählen
-            </button>
-            <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-        </div>
+        <p class="lead">Was für einen Gegenstand möchten Sie versichern?</p>
+        <select class="form-control">
+          <option value="sport">Hobby- & Sportgeräte</option>
+          <option value="communication">Kommunikationselektronik</option>
+          <option value="music">Musikinstrumente</option>
+        </select>
         <!--preis && dauer-->
       </div>
     </div>

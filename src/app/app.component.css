@@ -43,7 +43,7 @@
 }
 .jumbotron-anpassung{
     border-radius: 5%;
-    
+
 }
 
 .button-right {
@@ -51,9 +51,9 @@
    overflow: auto;
 }
 
-.dropdown-item {
+/*.dropdown-item {
     padding: 10px;
-}
+}*/
 .display-4 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(145, 7, 7);
