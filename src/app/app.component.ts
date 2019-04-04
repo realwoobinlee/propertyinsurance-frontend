@@ -4,7 +4,7 @@ import { ApiService } from '../shared/service/api.service';
 import { Beitrag } from '../shared/service/beitrag.model';
 import { KategorienGroup } from '../shared/kategorie/kategorie.service';
 import { ValidatorService } from '../shared/service/validator.service';
-import * as $ from 'jquery';
+import { timeout } from 'q';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +15,9 @@ export class AppComponent {
   private beitraege: Beitrag[] = [];
   private gegenstand: string;
   private preis: number;
+  private max: number = 5000;
+  private min: number = 1;
+  private answer_age:string = null;
   
   public width: any;
 
@@ -29,8 +32,6 @@ export class AppComponent {
 
   ngOnInit() {
     this.width = window.innerWidth;
-    this.getBeitrag();
-    $
   }
 
   private getBeitrag() {
@@ -44,7 +45,22 @@ export class AppComponent {
     )
   }
 
-  changePreis(value:number) {
+  changePreis(value: number) {
     this.preis = value;
+    if(this.kategoriegroup.productauswahl === "Fahrrad") {
+      this.gegenstand = "bike";
+    } else if (this.kategoriegroup.productauswahl === "Smartphone" || "Handy") {
+      this.gegenstand = "smartphone";
+    } else if (this.kategoriegroup.productauswahl === "Laptop") {
+      this.gegenstand = "laptop";
+    }
+    this.getBeitrag();
+    console.log(this.beitraege);
+    
+  }
+
+  private setAlert(value: string) {
+    this.kategoriegroup.setAlert(value);
+    this.answer_age = value;
   }
 }

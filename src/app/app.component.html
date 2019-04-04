@@ -7,36 +7,36 @@
   <!-- Headline-->
   <div *ngIf="width > 400" class= "col-4 abstand-top side-bar">
     <div class=" col-4 col-md-2 justify-content-start icon-style">
-        <i id="bicyle-icon" class="fas fa-bicycle fa-4x"></i>
+        <i id="bicyle-icon" [style.color]="!kategoriegroup.productauswahl ? 'black' : 'green'" class="fas fa-bicycle fa-4x"></i>
     </div>
     <div class="col-4 col-md-2 justify-content-start icon-style">
         <i id="erste-pfeile" class="fas fa-angle-double-right fa-2x"></i>
     </div>
     <div class=" col-4 col-md-2 justify-content-start icon-style">
-        <i id="time-icon" class="far fa-clock fa-4x"></i>
+        <i id="time-icon" [style.color]="!answer_age ? 'black' : 'green'" class="far fa-clock fa-4x"></i>
     </div>
     <div class="col-4 col-md-2 justify-content-start icon-style">
         <i id="zweite-pfeile" class="fas fa-angle-double-right fa-2x"></i>
     </div>
     <div class=" col-4 col-md-2 justify-content-start icon-style">
-        <i id="cash-icon" class="far fa-money-bill-alt fa-4x"></i>
+        <i id="cash-icon" [style.color]="!preis ? 'black' : 'green'" class="far fa-money-bill-alt fa-4x"></i>
     </div>
   </div>
   <div *ngIf="width < 401" class= "col-4 abstand-top side-bar">
     <div class=" col-4 col-md-2 justify-content-start icon-style">
-        <i id="bicyle-icon" class="fas fa-bicycle fa-3x"></i>
+        <i id="bicyle-icon" [style.color]="!kategoriegroup.productauswahl ? 'black' : 'green'" class="fas fa-bicycle fa-3x"></i>
     </div>
     <div class="col-4 col-md-2 justify-content-start icon-style">
         <i id="pfeile-icon" class="fas fa-angle-double-right fa-1x"></i>
     </div>
     <div class=" col-4 col-md-2 justify-content-start icon-style">
-        <i id="time-icon" class="far fa-clock fa-3x"></i>
+        <i id="time-icon" [style.color]="!answer_age ? 'black' : 'green'" class="far fa-clock fa-3x"></i>
     </div>
     <div class="col-4 col-md-2 justify-content-start icon-style">
         <i id="pfeile-icon" class="fas fa-angle-double-right fa-1x"></i>
     </div>
     <div class=" col-4 col-md-2 justify-content-start icon-style">
-        <i id="cash-icon" class="far fa-money-bill-alt fa-3x"></i>
+        <i id="cash-icon" [style.color]="!preis ? 'black' : 'green'" class="far fa-money-bill-alt fa-3x"></i>
     </div>
   </div>
   <!-- Beitragsrechner-->
@@ -58,7 +58,7 @@
         <div *ngIf="kategoriegroup.productauswahl" id="age_div">
           <hr class="my-4">
           <p class="lead">Ist Ihr {{kategoriegroup.productauswahl}} älter als {{kategoriegroup.maxjahr}}?</p>
-          <select id="age" class="form-control" (change)="kategoriegroup.setAlert($event.target.value)" >
+          <select id="age" class="form-control" (change)="setAlert($event.target.value)">
             <option hidden> - Bitte auswählen - </option>
             <option value="yes">Ja</option>
             <option value="no">Nein</option>
@@ -74,23 +74,23 @@
         <hr class="my-4">
         <p class="lead">Wie viel hat Ihr {{kategoriegroup.productauswahl}} gekostet?</p>
         <div class="input-group col-sm-12 mb-3 flex-nowrap">
-          <form [formGroup]= "validatorservice.formBeitragGroup" class="col-sm-8">
-            <input [min]="validatorservice.min"
-                   [max]="validatorservice.max" 
+          <div class="col-sm-8">
+            <input [min]="min"
+                   [max]="max" 
                    type="range" class="custom-range" 
                    id="formControlRange" 
                    (change)="changePreis($event.target.value)" 
                    [value]="preis">
-          </form>
-          <form [formGroup]= "validatorservice.formBeitragGroup" class="col-sm-3">
-            <input [min]="validatorservice.min" 
-                   [max]="validatorservice.max" 
+          </div>
+          <div class="col-sm-3">
+            <input [min]="min" 
+                   [max]="max" 
                    class="form-control" 
                    id="exampleFormControlInput1" 
                    placeholder="1" 
                    (change)="changePreis($event.target.value)" 
                    [value]="preis">
-          </form>
+          </div>
           <div class="col-sm-1 input-group-append">
             <span class="input-group-text">€</span>
           </div>
@@ -99,7 +99,7 @@
     </div>
   </div>
 </div>
-  <div class="col-12 col-sm-6 col-md-8 justify-content-center eingabe-bereich row">
+  <div *ngIf="preis" class="col-12 col-sm-6 col-md-8 justify-content-center eingabe-bereich row">
     <div class="jumbotron jumbotron-anpassung" style="background-color: rgb(142,0,56); color: white">
       <div id="Beitrag_div" class="lead">
         <TABLE class="col-sm-12">
@@ -108,7 +108,7 @@
               Ihr monatlicher Beitrag im ersten Jahr beträgt:
             </TD>
             <TD align="right">
-              ___ € <!-- TODO Li bitte item einfügen -->
+              {{beitraege[0].monatsbetrag}} € <!-- TODO Li bitte item einfügen -->
             </TD>
           </TR>
           <TR>
@@ -116,7 +116,7 @@
               Ihre Leistung im Schadenfall:
             </TD>
             <TD align="right">
-              ___ € <!-- TODO Li bitte item einfügen -->
+              {{beitraege[0].versicherungssumme}} € <!-- TODO Li bitte item einfügen -->
             </TD>
           </TR>
         </TABLE>

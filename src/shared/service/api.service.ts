@@ -9,19 +9,6 @@ export class ApiService {
     private FINAL_URL: string;
     private anfrage: any;
     private header: HttpHeaders;
-    private Enquiries = { "property": "Smartphone",
-                          "price": "200",
-                          "contractDuration": 3,
-                          "salutation": "Herr",
-                          "firstName": "Bernd",
-                          "lastName": "Brot",
-                          "email":"realwoobinlee@gmail.com",
-                          "phoneNumber":"123/321",
-                          "birthDate":"22.12.2222",
-                          "address":"hier",
-                          "postalCode":"22041",
-                          "city":"Hamburg",
-                          "country":"Algerien"}
 
     constructor(private http: HttpClient) {
         this.header = new HttpHeaders({'Content-Type': 'application/json'});
@@ -31,8 +18,8 @@ export class ApiService {
         // muss noch implementiert werden
         this.FINAL_URL = this.BR_API_URL + gegenstand + "/contribution";
         this.anfrage = {price: preis};
-        
-        return this.http.post<Beitrag[]>(this.FINAL_URL ,JSON.stringify(this.anfrage),{headers: this.header});
+        var result = this.http.post<Beitrag[]>(this.FINAL_URL ,JSON.stringify(this.anfrage),{headers: this.header});
+        return result;
     }
 
     public postAnforderung() {
