@@ -56,7 +56,7 @@ export class AppComponent {
   }
 
   changePreis(value: number) {
-    this.preis = value;
+    this.preis = value > 5000 ? 5000 : value;
     if(this.kategoriegroup.productauswahl === "Fahrrad") {
       this.gegenstand = "bike";
     } else if (this.kategoriegroup.productauswahl === "Smartphone" || "Handy") {
