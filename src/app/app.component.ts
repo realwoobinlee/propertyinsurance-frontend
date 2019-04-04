@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'beitragsrechner';
-  left: boolean;
-  middle: boolean;
-  right: boolean;
+  public width: any;
+
+  constructor() {
+  }
+  ngOnInit() {
+    this.width = window.innerWidth;
+  }
 }
