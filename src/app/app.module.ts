@@ -4,6 +4,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HttpClientModule } from '@angular/common/http';
 
 import { ApiService } from '../shared/service/api.service';
+import { KategorienGroup } from '../shared/kategorie/kategorie.service';
 
 import { AppComponent } from './app.component';
 
@@ -18,7 +19,8 @@ import { AppComponent } from './app.component';
     HttpClientModule
   ],
   providers: [
-    ApiService
+    ApiService,
+    KategorienGroup
   ],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 
 import { ApiService } from '../shared/service/api.service';
 import { Beitrag } from '../shared/service/beitrag.model';
+import { KategorienGroup } from '../shared/kategorie/kategorie.service';
 
 @Component({
   selector: 'app-root',
@@ -9,14 +10,28 @@ import { Beitrag } from '../shared/service/beitrag.model';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  private ersteauswahl: string[] = ["Hobby- & Sportgeräte", "Kommunikationselektronik","Musikinstrumente"];
-  private beitrag: Beitrag[] = [];
+  private beitraege: Beitrag[] = [];
+  private gegenstand: string;
+  private preis: number;
   
   public width: any;
 
-  constructor(private apiservice: ApiService) {
+  constructor(private apiservice: ApiService, private kategoriegroup: KategorienGroup) {
   }
+
   ngOnInit() {
     this.width = window.innerWidth;
+    this.getBeitrag();
+  }
+
+  private getBeitrag() {
+    this.apiservice.getBeitrag(this.gegenstand, this.preis).subscribe(
+      (beitraege: Beitrag[]) => {
+        this.beitraege = beitraege.map((beitrag: Beitrag) => {
+          // Erweiterungsmöglichkeit
+          return beitrag;
+        });
+      }
+    )
   }
 }

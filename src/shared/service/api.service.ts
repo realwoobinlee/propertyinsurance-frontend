@@ -11,11 +11,11 @@ export class ApiService {
     constructor(private http: HttpClient) {
     }
     // gegenstand (bike, smartphone, laptop)
-    public getBeitrag(gegenstand:string, preis: number): Observable<Beitrag> {
+    public getBeitrag(gegenstand:string, preis: number): Observable<Beitrag[]> {
         // muss noch implementiert werden
         this.FINAL_URL = this.BR_API_URL + gegenstand + "/contribution";
         this.anfrage = {price: preis};
         
-        return this.http.post<Beitrag>(this.FINAL_URL ,JSON.stringify(this.anfrage));
+        return this.http.post<Beitrag[]>(this.FINAL_URL ,JSON.stringify(this.anfrage));
     }
 }

@@ -47,8 +47,13 @@
       <div class="jumbotron jumbotron-anpassung">
         <h1 class="display-4">Beitragsrechner <p>Gegenstandsversicherung</p></h1>
         <p class="lead">Was für einen Gegenstand möchten Sie versichern?</p>
-        <select class="form-control">
-          <option *ngFor="let option of ersteauswahl">{{option}}</option>
+        <select class="form-control" (change)="kategoriegroup.setZweiteKategorie($event.target.value)">
+          <option hidden>bitte auswählen</option>
+          <option *ngFor="let option of kategoriegroup.erstekategorie" [value]="option">{{option}}</option>
+        </select>
+        <select class="form-control" *ngIf="kategoriegroup.ersteauswahl">
+          <option hidden>bitte auswählen</option>
+          <option *ngFor="let option of kategoriegroup.zweitekategorie" [value]="option">{{option}}</option>
         </select>
         <!--preis && dauer-->
       </div>
