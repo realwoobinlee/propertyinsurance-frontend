@@ -9,9 +9,10 @@ import { Beitrag } from '../shared/service/beitrag.model';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  private ersteauswahl: string[] = ["Hobby- & Sportgeräte", "Kommunikationselektronik","Musikinstrumente"];
+  private ersteauswahl: string[] = ["Hobby- & Sportgeräte", "Kommunikationselektronik", "Unterhaltungselektronik & Computer",
+    "Musikinstrumente"];
   private beitrag: Beitrag[] = [];
-  
+
   public width: any;
 
   constructor(private apiservice: ApiService) {

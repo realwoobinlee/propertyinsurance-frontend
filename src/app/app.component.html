@@ -46,11 +46,33 @@
       <div jumbotron-anpassung><h1></h1></div>
       <div class="jumbotron jumbotron-anpassung">
         <h1 class="display-4">Beitragsrechner <p>Gegenstandsversicherung</p></h1>
-        <p class="lead">Was für einen Gegenstand möchten Sie versichern?</p>
+        <p class="lead">Welchen Gegenstand möchten Sie versichern?</p>
         <select class="form-control">
+          <option hidden>Produktkategorie</option>
           <option *ngFor="let option of ersteauswahl">{{option}}</option>
         </select>
+        <br>
+        <select id="item" class="form-control">
+          <option value="default"> Li bitte füllen </option>
+        </select>
+        <div id="age_div">
+          <hr class="my-4">
+          <p class="lead">Ist Ihr ___<!-- TODO Li bitte item einfügen --> älter als ___<!-- TODO Li bitte höchstalter eintragen--> Jahre?</p>
+          <select id="age" class="form-control">
+            <option hidden> - Bitte auswählen - </option>
+            <option value="yes">Ja</option>
+            <option value="no">Nein</option>
+          </select>
+          <div id="age_error">
+            <br>
+            <div class="alert alert-danger" role="alert">
+              Leider können wir Ihr ___<!-- TODO Li bitte item einfügen --> nur versichern, wenn es nicht älter als ___<!-- TODO Li bitte höchstalter eintragen--> Jahre ist.
+            </div>
+          </div>
         <!--preis && dauer-->
+      </div>
+      <div id="price_div">
+
       </div>
     </div>
   </div>
