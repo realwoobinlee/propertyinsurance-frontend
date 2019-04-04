@@ -20,7 +20,7 @@ export class AppComponent {
   private min: number = 1;
   private answer_age:string = null;
   private _salutation: string;
-  
+
   public width: any;
 
   constructor(private apiservice: ApiService,
@@ -66,7 +66,7 @@ export class AppComponent {
     }
     this.getBeitrag();
     console.log(this.beitraege);
-    
+
   }
 
   private setAlert(value: string) {

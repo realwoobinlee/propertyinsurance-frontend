@@ -2,44 +2,46 @@
 <!-- Ergozeichen-->
 <div class="col-12 col-md-12 top-nav">
   <img id="top-img" src="../assets/image/ergozeichen.png">
-  <span style="color: grey">                  | </span>
+  <span style="color: grey"> | </span>
   <span> Gegenstandsversicherung</span>
 </div>
 <div id= firstdiv class="container">
   <!-- Headline-->
+  <div style="margin-top: 1%">
   <div *ngIf="width > 400" class= "col-4 abstand-top side-bar">
     <div class=" col-4 col-md-2 justify-content-start icon-style">
-        <i id="bicyle-icon" [style.color]="!kategoriegroup.productauswahl ? 'black' : 'green'" class="fas fa-bicycle fa-4x"></i>
+        <i id="bicyle-icon" [style.color]="!kategoriegroup.productauswahl ? 'rgba(0,0,0,0.3)' : 'rgb(142,0,56)'" class="fas fa-bicycle fa-4x"></i>
     </div>
     <div class="col-4 col-md-2 justify-content-start icon-style">
         <i id="erste-pfeile" class="fas fa-angle-double-right fa-2x"></i>
     </div>
     <div class=" col-4 col-md-2 justify-content-start icon-style">
-        <i id="time-icon" [style.color]="!answer_age ? 'black' : 'green'" class="far fa-clock fa-4x"></i>
+        <i id="time-icon" [style.color]="!answer_age ? 'rgba(0,0,0,0.3)' : 'rgb(142,0,56)'" class="far fa-clock fa-4x"></i>
     </div>
     <div class="col-4 col-md-2 justify-content-start icon-style">
         <i id="zweite-pfeile" class="fas fa-angle-double-right fa-2x"></i>
     </div>
     <div class=" col-4 col-md-2 justify-content-start icon-style">
-        <i id="cash-icon" [style.color]="!preis ? 'black' : 'green'" class="far fa-money-bill-alt fa-4x"></i>
+        <i id="cash-icon" [style.color]="!preis ? 'rgba(0,0,0,0.3)' : 'rgb(142,0,56)'" class="far fa-money-bill-alt fa-4x"></i>
     </div>
   </div>
   <div *ngIf="width < 401" class= "col-4 abstand-top side-bar">
     <div class=" col-4 col-md-2 justify-content-start icon-style">
-        <i id="bicyle-icon" [style.color]="!kategoriegroup.productauswahl ? 'black' : 'green'" class="fas fa-bicycle fa-3x"></i>
+        <i id="bicyle-icon" [style.color]="!kategoriegroup.productauswahl ? 'rgba(0,0,0,0.3)' : 'rgb(142,0,56)'" class="fas fa-bicycle fa-3x"></i>
     </div>
     <div class="col-4 col-md-2 justify-content-start icon-style">
         <i id="pfeile-icon" class="fas fa-angle-double-right fa-1x"></i>
     </div>
     <div class=" col-4 col-md-2 justify-content-start icon-style">
-        <i id="time-icon" [style.color]="!answer_age ? 'black' : 'green'" class="far fa-clock fa-3x"></i>
+        <i id="time-icon" [style.color]="!answer_age ? 'rgba(0,0,0,0.3)' : 'rgb(142,0,56)'" class="far fa-clock fa-3x"></i>
     </div>
     <div class="col-4 col-md-2 justify-content-start icon-style">
         <i id="pfeile-icon" class="fas fa-angle-double-right fa-1x"></i>
     </div>
     <div class=" col-4 col-md-2 justify-content-start icon-style">
-        <i id="cash-icon" [style.color]="!preis ? 'black' : 'green'" class="far fa-money-bill-alt fa-3x"></i>
+        <i id="cash-icon" [style.color]="!preis ? 'rgba(0,0,0,0.3)' : 'rgb(142,0,56)'" class="far fa-money-bill-alt fa-3x"></i>
     </div>
+  </div>
   </div>
   <!-- Beitragsrechner-->
   <div class="col-12 col-sm-6 col-md-8 justify-content-center eingabe-bereich row">
