@@ -62,3 +62,6 @@
 .display-4 p {
     padding-top: 2%;
 }
+td {
+  padding: 10px;
+}
