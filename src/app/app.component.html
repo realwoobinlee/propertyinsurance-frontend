@@ -41,16 +41,14 @@
   </div>
   <!-- Beitragsrechner-->
   <div class="col-12 col-sm-6 col-md-8 justify-content-center eingabe-bereich">
-    <
+    <!--weiter-->
     <div>
       <div jumbotron-anpassung><h1></h1></div>
       <div class="jumbotron jumbotron-anpassung">
         <h1 class="display-4">Beitragsrechner <p>Gegenstandsversicherung</p></h1>
         <p class="lead">Was für einen Gegenstand möchten Sie versichern?</p>
         <select class="form-control">
-          <option value="sport">Hobby- & Sportgeräte</option>
-          <option value="communication">Kommunikationselektronik</option>
-          <option value="music">Musikinstrumente</option>
+          <option *ngFor="let option of ersteauswahl">{{option}}</option>
         </select>
         <!--preis && dauer-->
       </div>
