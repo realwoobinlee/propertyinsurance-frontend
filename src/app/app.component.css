@@ -3,6 +3,8 @@
 }
 #top-img {
     height: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 #firstdiv {
     width: 100% !important;
@@ -43,6 +45,15 @@
 }
 .jumbotron-anpassung{
     border-radius: 30px;
+    width: 800px;
+   /* max-width: 75%;
+    align: center;*/
+}
+
+@media only screen and (max-width: 799px) {
+  .jumbotron-anpassung{
+  width: 100%;
+}
 
 }
 
@@ -66,3 +77,41 @@ td {
   padding: 10px;
 }
 
+.btn-success {
+  color: rgb(100,0,20);
+  background-color: white;
+  border-color: rgb(100,0,20);
+  border-radius: 50px;
+  transition: 0.5s;
+}
+
+.btn-success:hover {
+  color: white;
+  background-color: rgb(142,0,56);
+  border-color: rgb(100,0,20);
+  transition: 0.5s;
+}
+
+.btn-success:active {
+  border-color: rgb(142,0,56);
+  background-color: rgb(100,0,20);
+}
+.btn-send {
+  color: white;
+  background-color: rgb(142,0,56);
+  border-color: rgb(100,0,20);
+  border-radius: 50px;
+  transition: 0.5s;
+}
+
+.btn-send:hover {
+  color: white;
+  background-color: rgb(100,0,20);
+  border-color: rgb(142,0,56);
+  transition: 0.5s;
+}
+
+.btn-send:active {
+  border-color: rgb(100,0,20);
+  background-color: rgb(142,0,56);
+}

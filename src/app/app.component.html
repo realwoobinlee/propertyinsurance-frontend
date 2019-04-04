@@ -2,6 +2,8 @@
 <!-- Ergozeichen-->
 <div class="col-12 col-md-12 top-nav">
   <img id="top-img" src="../assets/image/ergozeichen.png">
+  <span style="color: grey">                  | </span>
+  <span> Gegenstandsversicherung</span>
 </div>
 <div id= firstdiv class="container">
   <!-- Headline-->
@@ -51,7 +53,8 @@
           <option *ngFor="let option of kategoriegroup.erstekategorie" [value]="option">{{option}}</option>
         </select>
         <br>
-        <select class="form-control" *ngIf="kategoriegroup.ersteauswahl" (change)="kategoriegroup.setFinalProduct($event.target.value)">
+        <select class="form-control" *ngIf="kategoriegroup.ersteauswahl"
+                (change)="kategoriegroup.setFinalProduct($event.target.value)">
           <option hidden>bitte auswählen</option>
           <option *ngFor="let option of kategoriegroup.zweitekategorie" [value]="option">{{option}}</option>
         </select>
@@ -66,7 +69,8 @@
           <div *ngIf="kategoriegroup.mussalert" id="age_error">
             <br>
             <div class="alert alert-danger" role="alert">
-              Leider können wir Ihr {{kategoriegroup.productauswahl}} nur versichern, wenn es nicht älter als {{kategoriegroup.maxjahr}} ist.
+              Leider können wir Ihr {{kategoriegroup.productauswahl}} nur versichern, wenn es nicht älter
+              als {{kategoriegroup.maxjahr}} ist.
             </div>
           </div>
       </div>
@@ -76,19 +80,19 @@
         <div class="input-group col-sm-12 mb-3 flex-nowrap">
           <div class="col-sm-8">
             <input [min]="min"
-                   [max]="max" 
-                   type="range" class="custom-range" 
-                   id="formControlRange" 
-                   (change)="changePreis($event.target.value)" 
+                   [max]="max"
+                   type="range" class="custom-range"
+                   id="formControlRange"
+                   (change)="changePreis($event.target.value)"
                    [value]="preis">
           </div>
           <div class="col-sm-3">
-            <input [min]="min" 
-                   [max]="max" 
-                   class="form-control" 
-                   id="exampleFormControlInput1" 
-                   placeholder="1" 
-                   (change)="changePreis($event.target.value)" 
+            <input [min]="min"
+                   [max]="max"
+                   class="form-control"
+                   id="exampleFormControlInput1"
+                   placeholder="1"
+                   (change)="changePreis($event.target.value)"
                    [value]="preis">
           </div>
           <div class="col-sm-1 input-group-append">
@@ -120,6 +124,93 @@
             </TD>
           </TR>
         </TABLE>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="preis" class="col-12 col-sm-6 col-md-8 justify-content-center eingabe-bereich row">
+    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#antragModal"
+            style="margin-bottom: 25px">Weiter zum Antrag
+    </button>
+  </div>
+</div>
+<div class="modal fade" id="antragModal" tabindex="-1" role="dialog" aria-labelledby="antragModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="antragModalLabel">Antrag abschließen</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h4>Meine Kontaktdaten</h4>
+        <div class="form-group">
+          <label for="email" class="col-form-label">E-Mail*</label>
+          <input type="text" class="form-control" id="email" placeholder="E-Mail">
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber" class="col-form-label">Telefon</label>
+          <input type="text" class="form-control" id="phoneNumber" placeholder="Telefon">
+        </div>
+        <hr>
+        <h4>Meine persönlichen Daten</h4>
+        <label for="salution" class="col-form-label">Anrede*</label>
+        <div id="salution">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" name="salution" type="radio" id="Herr" value="option1">
+            <label class="form-check-label" for="Herr"> Herr</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" name="salution" type="radio" id="Frau" value="option2">
+            <label class="form-check-label" for="Frau"> Frau</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" name="salution" type="radio" id="Firma" value="option3">
+            <label class="form-check-label" for="Firma"> Firma</label>
+          </div>
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="firstName" class="col-form-label">Vorname*</label>
+          <input type="text" class="form-control" id="firstName" placeholder="Vorname">
+        </div>
+        <div class="form-group">
+          <label for="lastName" class="col-form-label">Name*</label>
+          <input type="text" class="form-control" id="lastName" placeholder="Name">
+        </div>
+        <div class="form-group">
+          <label for="birthDate" class="col-form-label">Geburtstag*</label>
+          <input type="date" class="form-control" id="birthDate">
+         </div>
+        <hr>
+        <h4>Meine Adresse</h4>
+        <div class="form-group">
+          <label for="address" class="col-form-label">Straße und Hausnummer*</label>
+          <input type="text" class="form-control" id="address" placeholder="Straße und Hausnummer">
+        </div>
+        <div class="form-group">
+          <label for="postalCode" class="col-form-label">PLZ*</label>
+          <input type="string" class="form-control" id="postalCode" placeholder="PLZ">
+        </div>
+        <div class="form-group">
+          <label for="city" class="col-form-label">Ort*</label>
+          <input type="text" class="form-control" id="city" placeholder="Ort">
+        </div>
+        <div class="form-group">
+          <label for="country" class="col-form-label">Land*</label>
+          <input type="text" class="form-control" id="country" placeholder="Deutschland" disabled>
+        </div>
+        <hr>
+        <div class="form-group">
+          <label for="message-text" class="col-form-label">Ihre Nachricht an uns:</label>
+          <textarea class="form-control" id="message-text" style="resize: vertical"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+         <div align="left" style="color: grey">Füllen Sie bitte die mit * gekennzeichneten Felder aus.</div>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Abbrechen</button>
+        <button type="button" class="btn btn-send">Antrag senden</button>
       </div>
     </div>
   </div>

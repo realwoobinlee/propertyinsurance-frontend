@@ -1,5 +1,5 @@
 export class KategorienGroup {
-    public erstekategorie: string[] = ["Hobby- & Sportgeräte", "Kommunikationselektronik","Musikinstrumente"];
+    public erstekategorie: string[] = ["Hobby- & Sportgeräte", "Kommunikationselektronik", "Unterhaltungselektronik & Computer"];
     public ersteauswahl: string;
     public zweitekategorie: string[];
     public productauswahl: string;
@@ -16,10 +16,10 @@ export class KategorienGroup {
                 this.zweitekategorie = ["Fahrrad"];
                 break;
             case this.erstekategorie[1]:
-                this.zweitekategorie = ["Laptop", "Handy", "Smartphone"];
+                this.zweitekategorie = ["Handy", "Smartphone"];
                 break;
             case this.erstekategorie[2]:
-                this.zweitekategorie = ["blabla"];
+                this.zweitekategorie = ["Laptop", "Netbook", "Tablet-Computer"];
                 break;
         }
     }
@@ -28,7 +28,7 @@ export class KategorienGroup {
         this.mussalert = false;
         this.maxjahr = "1 Jahr";
         this.productauswahl = value;
-        if (this.productauswahl === "Laptop") {
+        if (this.productauswahl in ["Laptop", "Netbook", "Tablet-Computer"]) {
             this.maxjahr = "3 Jahre";
         }
     }
