@@ -145,61 +145,71 @@
       </div>
       <div class="modal-body">
         <h4>Meine Kontaktdaten</h4>
+        <!-- email -->
         <div class="form-group">
           <label for="email" class="col-form-label">E-Mail*</label>
-          <input type="text" class="form-control" id="email" placeholder="E-Mail">
+          <input type="text" class="form-control" id="email" placeholder="E-Mail" (input)="setemail($event.target.value)">
         </div>
+        <!-- phoneNumber -->
         <div class="form-group">
           <label for="phoneNumber" class="col-form-label">Telefon</label>
-          <input type="text" class="form-control" id="phoneNumber" placeholder="Telefon">
+          <input type="text" class="form-control" id="phoneNumber" placeholder="Telefon" (input)="setphoneNumber($event.target.value)">
         </div>
         <hr>
         <h4>Meine persönlichen Daten</h4>
         <label for="salution" class="col-form-label">Anrede*</label>
+        <!--salutation-->
         <div id="salution">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" name="salution" type="radio" id="Herr" value="option1">
+            <input class="form-check-input" name="salution" type="radio" id="Herr" value="Herr" (input)="setsalutation('Herr')">
             <label class="form-check-label" for="Herr"> Herr</label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" name="salution" type="radio" id="Frau" value="option2">
+            <input class="form-check-input" name="salution" type="radio" id="Frau" value="Frau" (input)="setsalutaion('Frau')">
             <label class="form-check-label" for="Frau"> Frau</label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" name="salution" type="radio" id="Firma" value="option3">
+            <input class="form-check-input" name="salution" type="radio" id="Firma" value="Firma" (input)="setsalutaion('Firma')">
             <label class="form-check-label" for="Firma"> Firma</label>
           </div>
         </div>
         <br>
+        <!--firstName-->
         <div class="form-group">
           <label for="firstName" class="col-form-label">Vorname*</label>
-          <input type="text" class="form-control" id="firstName" placeholder="Vorname">
+          <input type="text" class="form-control" id="firstName" placeholder="Vorname" (input)="setfirstName($event.target.value)">
         </div>
+        <!--lastName-->
         <div class="form-group">
           <label for="lastName" class="col-form-label">Name*</label>
-          <input type="text" class="form-control" id="lastName" placeholder="Name">
+          <input type="text" class="form-control" id="lastName" placeholder="Name" (input)="setlastName($event.target.value)">
         </div>
+        <!--birthDate-->
         <div class="form-group">
           <label for="birthDate" class="col-form-label">Geburtstag*</label>
-          <input type="date" class="form-control" id="birthDate">
+          <input type="date" class="form-control" id="birthDate" (input)="setbirthDate($event.target.value)">
          </div>
         <hr>
         <h4>Meine Adresse</h4>
+        <!--address-->
         <div class="form-group">
           <label for="address" class="col-form-label">Straße und Hausnummer*</label>
-          <input type="text" class="form-control" id="address" placeholder="Straße und Hausnummer">
+          <input type="text" class="form-control" id="address" placeholder="Straße und Hausnummer" (input)="setaddress($event.target.value)">
         </div>
+        <!--postalCode-->
         <div class="form-group">
           <label for="postalCode" class="col-form-label">PLZ*</label>
-          <input type="string" class="form-control" id="postalCode" placeholder="PLZ">
+          <input type="string" class="form-control" id="postalCode" placeholder="PLZ" (input)="setpostalCode($event.target.value)">
         </div>
+        <!--city-->
         <div class="form-group">
           <label for="city" class="col-form-label">Ort*</label>
-          <input type="text" class="form-control" id="city" placeholder="Ort">
+          <input type="text" class="form-control" id="city" placeholder="Ort" (input)="setcity($event.target.value)">
         </div>
+        <!--country-->
         <div class="form-group">
           <label for="country" class="col-form-label">Land*</label>
-          <input type="text" class="form-control" id="country" placeholder="Deutschland" disabled>
+          <input type="text" class="form-control" id="country" placeholder="Deutschland" disabled (input)="setcountry('Deutschland')">
         </div>
         <hr>
         <div class="form-group">
@@ -210,7 +220,8 @@
       <div class="modal-footer">
          <div align="left" style="color: grey">Füllen Sie bitte die mit * gekennzeichneten Felder aus.</div>
         <button type="button" class="btn btn-success" data-dismiss="modal">Abbrechen</button>
-        <button type="button" class="btn btn-send">Antrag senden</button>
+        <!--absenden   Weiter!!!!-->
+        <button type="button" class="btn btn-send" (click)="postEnquiries()" >Antrag senden</button>
       </div>
     </div>
   </div>
