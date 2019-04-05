@@ -11,6 +11,8 @@ import { ValidatorService } from '../shared/service/validator.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  private jahrangabe: Array<number> = [];
+  private selectedIndex: number = 0;
   private beitraege: Beitrag[] = [];
   private enquiries: Array<any> = [null,null,null,null,null,null,null,null,null,null,null,null,null];
   private enq: Enquiries;
@@ -37,12 +39,21 @@ export class AppComponent {
   }
 
   private getBeitrag() {
+    var aktuellesjahr = 1;
     this.apiservice.getBeitrag(this.gegenstand, this.preis).subscribe(
       (beitraege: Beitrag[]) => {
+        /*
         this.beitraege = beitraege.map((beitrag: Beitrag) => {
           // Erweiterungsmöglichkeit
           return beitrag;
         });
+        */
+       this.beitraege = beitraege;
+        this.jahrangabe = [];
+       while(aktuellesjahr <= this.beitraege.length) {
+         this.jahrangabe.push(aktuellesjahr);
+         aktuellesjahr += 1;
+       }
       }
     )
   }
@@ -55,23 +66,25 @@ export class AppComponent {
     );
   }
 
-  changePreis(value: number) {
+  async changePreis(value: number) {
     this.preis = value > 5000 ? 5000 : value;
-    if(this.kategoriegroup.productauswahl === "Fahrrad") {
-      this.gegenstand = "bike";
-    } else if (this.kategoriegroup.productauswahl === "Smartphone" || "Handy") {
-      this.gegenstand = "smartphone";
-    } else if (this.kategoriegroup.productauswahl === "Laptop") {
-      this.gegenstand = "laptop";
+    switch(this.kategoriegroup.productauswahl) {
+      case "Fahrrad": this.gegenstand ="bike"; break;
+      case "Smartphone": this.gegenstand = "smartphone"; break;
+      case "Handy": this.gegenstand = "smartphone"; break;
+      case "Laptop": this.gegenstand = "laptop"; break;
     }
-    this.getBeitrag();
-    console.log(this.beitraege);
-
+    
+    await this.getBeitrag();
   }
 
   private setAlert(value: string) {
     this.kategoriegroup.setAlert(value);
     this.answer_age = value;
+  }
+
+  private selectIndex(jahr: number) {
+    this.selectedIndex = jahr - 1;
   }
 
   //------------------------------------------------------------------------------------
@@ -80,6 +93,7 @@ export class AppComponent {
     this.enquiries[0] = this.gegenstand;
     this.enquiries[1] = this.preis;
     this.enquiries[2] = 1;
+    this.enquiries[12] = "Deutschland";
   }
   private setlastName(value: string) {
     this.enquiries[5] = value;
@@ -101,8 +115,14 @@ export class AppComponent {
   private setcountry(value: string) {
     this.enquiries[12] = value;
   }
-  private setsalutaion(value: string) {
-    this.enquiries[3] = value;
+  private setsalutationHerr() {
+    this.enquiries[3] = "Herr";
+  }
+  private setsalutationFrau() {
+    this.enquiries[3] = "Frau";
+  }
+  private setsalutationFirma() {
+    this.enquiries[3] = "Firma";
   }
   private setemail(value: string) {
     this.enquiries[6] = value;

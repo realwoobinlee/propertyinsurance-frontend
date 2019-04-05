@@ -105,16 +105,23 @@
     </div>
   </div>
 </div>
-  <div *ngIf="preis" class="col-12 col-sm-6 col-md-8 justify-content-center eingabe-bereich row">
+
+<ul *ngIf="preis&&kategoriegroup.zeigepreisdiv" class="nav nav-pills">
+    <li *ngFor="let jahr of jahrangabe" class="nav-item"> <!--hhhhhhhh-->
+      <a class="nav-link active" (click)="selectIndex(jahr)">{{jahr}}. Jahr</a>
+    </li>
+</ul>
+
+  <div *ngIf="preis&&kategoriegroup.zeigepreisdiv" class="col-12 col-sm-6 col-md-8 justify-content-center eingabe-bereich row">
     <div class="jumbotron jumbotron-anpassung" style="background-color: rgb(142,0,56); color: white">
       <div id="Beitrag_div" class="lead">
         <TABLE class="col-sm-12">
           <TR>
             <TD ALIGN="LEFT">
-              Ihr monatlicher Beitrag im ersten Jahr beträgt:
+              Ihr monatlicher Beitrag im {{selectedIndex + 1}}. Jahr beträgt:
             </TD>
             <TD align="right">
-              {{beitraege[0].monatsbetrag}} € <!-- TODO Li bitte item einfügen -->
+              {{beitraege[selectedIndex].monatsbetrag}} € <!-- TODO Li bitte item einfügen -->
             </TD>
           </TR>
           <TR>
@@ -122,14 +129,14 @@
               Ihre Leistung im Schadenfall:
             </TD>
             <TD align="right">
-              {{beitraege[0].versicherungssumme}} € <!-- TODO Li bitte item einfügen -->
+              {{beitraege[selectedIndex].versicherungssumme}} € <!-- TODO Li bitte item einfügen -->
             </TD>
           </TR>
         </TABLE>
       </div>
     </div>
   </div>
-  <div *ngIf="preis" class="col-12 col-sm-6 col-md-8 justify-content-center eingabe-bereich row">
+  <div *ngIf="preis&&kategoriegroup.zeigepreisdiv" class="col-12 col-sm-6 col-md-8 justify-content-center eingabe-bereich row">
     <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#antragModal"
             style="margin-bottom: 25px">Weiter zum Antrag
     </button>
@@ -163,15 +170,15 @@
         <!--salutation-->
         <div id="salution">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" name="salution" type="radio" id="Herr" value="Herr" (input)="setsalutation('Herr')">
+            <input class="form-check-input" name="salution" type="radio" id="Herr" value="Herr" (change)="setsalutationHerr()">
             <label class="form-check-label" for="Herr"> Herr</label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" name="salution" type="radio" id="Frau" value="Frau" (input)="setsalutaion('Frau')">
+            <input class="form-check-input" name="salution" type="radio" id="Frau" value="Frau" (change)="setsalutaionFrau()">
             <label class="form-check-label" for="Frau"> Frau</label>
           </div>
           <div class="form-check">
-            <input class="form-check-input" name="salution" type="radio" id="Firma" value="Firma" (input)="setsalutaion('Firma')">
+            <input class="form-check-input" name="salution" type="radio" id="Firma" value="Firma" (change)="setsalutaionFirma()">
             <label class="form-check-label" for="Firma"> Firma</label>
           </div>
         </div>
