@@ -53,6 +53,13 @@
         <select class="form-control" (change)="kategoriegroup.setZweiteKategorie($event.target.value)">
           <option hidden>Produktkategorie</option>
           <option *ngFor="let option of kategoriegroup.erstekategorie" [value]="option">{{option}}</option>
+          <option disabled>Musikinstrumente</option>
+          <option disabled>Foto & Video</option>
+          <option disabled>Haushaltsgeräte</option>
+          <option disabled>Schmuck & Antiquitäten (keine Möbel!)</option>
+          <option disabled>Möbel & Wohnen</option>
+          <option disabled>Heimwerken & Garten</option>
+          <option disabled>Bekleidung & Accessoires</option>
         </select>
         <br>
         <select class="form-control" *ngIf="kategoriegroup.ersteauswahl"
@@ -93,7 +100,8 @@
                    [max]="max"
                    class="form-control"
                    id="exampleFormControlInput1"
-                   placeholder="1"
+                   placeholder="1234"
+                   onClick="this.select();"
                    (change)="changePreis($event.target.value)"
                    [value]="preis">
           </div>
@@ -147,7 +155,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="antragModalLabel">Antrag abschließen</h5>
+        <h5 class="modal-title" id="antragModalLabel">Meine Gegenstandsversicherung</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -249,7 +257,7 @@
           Ihr Antrag wurde erfolgreich versendet. Sie erhalten eine Bestätigung per E-Mail.<br>Vielen Dank
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="location.href='https://www.ergo.de/de/Produkte/Hausrat-und-Gebaeudeversicherung/Gegenstandversicherung'">OK</button>
         </div>
       </div>
     </div>

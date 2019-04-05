@@ -28,7 +28,7 @@ export class KategorienGroup {
         this.mussalert = false;
         this.maxjahr = "1 Jahr";
         this.productauswahl = value;
-        if (this.productauswahl in ["Laptop", "Netbook", "Tablet-Computer"]) {
+        if (this.productauswahl === "Laptop" || "Netbook" || "Tablet-Computer") {
             this.maxjahr = "3 Jahre";
         }
     }

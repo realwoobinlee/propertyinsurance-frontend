@@ -74,7 +74,7 @@ export class AppComponent {
       case "Handy": this.gegenstand = "smartphone"; break;
       case "Laptop": this.gegenstand = "laptop"; break;
     }
-    
+
     await this.getBeitrag();
   }
 
